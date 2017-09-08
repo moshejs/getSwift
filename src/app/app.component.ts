@@ -75,7 +75,6 @@ export class AppComponent implements OnInit {
 
   dispatch(drones: any, packages: Package[]): any {
     let assigned = [];
-
     packages.forEach(deliveryPackage => {
       drones.forEach(drone => {
         if (!drone.assigned && !deliveryPackage.assigned) {
@@ -95,7 +94,8 @@ export class AppComponent implements OnInit {
     });
 
     return {assigned: assigned,
-            unassigned: this.formatUnassignedPackages(packages)};
+      unassignedPackageIds: this.formatUnassignedPackages(packages)};
+
 
   }
 
